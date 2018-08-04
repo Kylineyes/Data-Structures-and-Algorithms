@@ -1,10 +1,12 @@
-#include "insertsort.h"
+#include "insertionsort.h"
 
-void InsertSort(void* base, size_t size, size_t width, int (*comp)(const void *, const void *))
+STATE InsertionSort(void* base, size_t size, size_t width, int (*comp)(const void *, const void *))
 {
     char* p = base;
     void* temp = NULL;
-    temp = malloc(width);
+   temp = malloc(width);
+   if(temp == NULL)
+	    return FAILURE;
     for(size_t i = 1; i < size; ++i)
     {
         memcpy(temp, p + i * width, width);
@@ -18,6 +20,7 @@ void InsertSort(void* base, size_t size, size_t width, int (*comp)(const void *,
     }
     free(temp);
     temp = NULL;
+    return SUCCESS;
 }
 
 int comp(const void* a, const void* b)

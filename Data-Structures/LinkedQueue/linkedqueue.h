@@ -6,8 +6,8 @@
 
 #define STATE int
 #define ElemType int
-#define Success 0
-#define Failed 1
+#define SUCCESS 0
+#define FAILURE 1
 #define MININUM 4
 
 typedef struct __LQNode

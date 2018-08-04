@@ -42,7 +42,7 @@ STATE QueuePush(Queue* queue, ElemType value)
     _LQNode *tmp = NULL;
     tmp = _LQNodeCreate(value);
     if(tmp == NULL)
-        return Failed;
+        return FAILURE;
     if(queue->header == NULL)
     {
         queue->header = tmp;
@@ -54,21 +54,21 @@ STATE QueuePush(Queue* queue, ElemType value)
         queue->tailer = tmp;
     }
     queue->length++;
-    return Success;
+    return SUCCESS;
 }
 
 STATE QueueFronter(Queue* queue, ElemType* ref)
 {
     if(queue->header == NULL)
-        return Failed;
+        return FAILURE;
     *ref = queue->header->value;
-    return Success;
+    return SUCCESS;
 }
 
 STATE QueuePop(Queue* queue)
 {
     if(queue->header == NULL)
-        return Failed;
+        return FAILURE;
     _LQNode *tmp = queue->header;
     queue->header = tmp->pnext;
     free(tmp);
@@ -78,5 +78,5 @@ STATE QueuePop(Queue* queue)
         queue->header = NULL;
         queue->tailer = NULL;
     }
-    return Success;
+    return SUCCESS;
 }

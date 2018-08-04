@@ -11,12 +11,12 @@ int main()
    int testVal = -123;
    QueueFronter(tmpQueue, &testVal);
    printf("%d \n",testVal);
-   while(QueueFronter(tmpQueue, &testVal) != Failed)
+   while(QueueFronter(tmpQueue, &testVal) != FAILURE)
    {
        QueuePop(tmpQueue);
        printf("%d\n",testVal);
    }
    QueueDestory(tmpQueue);
-   return 0;
+   return EXIT_SUCCESS;
 }
 

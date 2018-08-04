@@ -29,28 +29,28 @@ STATE StackPush(LinearStack* stack, ElemType value)
     {
         ElemType* tmp = (ElemType*)realloc(stack->_stack, stack->size * 2 * sizeof(ElemType));
         if(tmp == NULL)
-            return Failed;
+            return FAILURE;
         stack->_stack = tmp;
         stack->size *= 2;
     }
     stack->_stack[stack->length] = value;
     stack->length++;
-    return Success;
+    return SUCCESS;
 }
 
 STATE StackTop(LinearStack* stack, ElemType* ref)
 {
     if(stack->length == 0)
-        return Failed;
+        return FAILURE;
 
     *ref = stack->_stack[stack->length - 1];
-    return Success;
+    return SUCCESS;
 }
 
 STATE StackPop(LinearStack* stack)
 {
     if(stack->length == 0)
-        return Failed;
+        return FAILURE;
 
     stack->length--;
     if(stack->size > MININUM && stack->length * 2 < stack->size)
@@ -58,5 +58,5 @@ STATE StackPop(LinearStack* stack)
         stack->size /= 2;
         stack->_stack = (ElemType*)realloc(stack->_stack, stack->size * sizeof(ElemType));
     }
-    return Success;
+    return SUCCESS;
 }

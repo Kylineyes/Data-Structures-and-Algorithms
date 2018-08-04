@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <stdlib.h>
 #include "linearstack.h"
 // An sample example.
 int main()
@@ -14,12 +15,12 @@ int main()
     StackTop(tmpStack, &testVal);
     printf("%d\n",testVal);
 
-    while (StackTop(tmpStack, &testVal) != Failed)
+    while (StackTop(tmpStack, &testVal) != FAILURE)
     {
         StackPop(tmpStack);
         printf("%d\n",testVal);
     }
     StackDestory(tmpStack);
     tmpStack = NULL;
-    return 0;
+    return EXIT_SUCCESS;
 }
