@@ -4,8 +4,8 @@ STATE InsertionSort(void* base, size_t size, size_t width, int (*comp)(const voi
 {
     char* p = base;
     void* temp = NULL;
-   temp = malloc(width);
-   if(temp == NULL)
+    temp = malloc(width);
+    if(temp == NULL)
 	    return FAILURE;
     for(size_t i = 1; i < size; ++i)
     {
